@@ -1,6 +1,6 @@
 {
     "AWSTemplateFormatVersion": "2010-09-09",
-    "Description": "Microservice Template",
+    "Description": "At Job Service Template",
     "Parameters": {
         "S3Bucket": {
             "Description": "Name of the S3 bucket containing Lambda function.",
@@ -15,7 +15,7 @@
         "DynamoDBTable": {
             "Description": "Name of the Dynamo DB Table to hold service data.",
             "Type": "String",
-            "Default": "service-items"
+            "Default": "at-jobs"
         },
         "ApiId": {
             "Description": "API Gateway App Id. E.g. 1yc6td9zjj",
@@ -25,7 +25,7 @@
         "LambdaHandler": {
             "Description": "Handler for Lambda function",
             "Type": "String",
-            "Default": "service.lambda_handler"
+            "Default": "at.lambda_handler"
         },
         "LambdaTimeout": {
             "Description": "Timeout for Lambda function",
@@ -47,11 +47,11 @@
             "Type": "AWS::DynamoDB::Table",
             "Properties": {
                 "AttributeDefinitions": [{
-                    "AttributeName": "d",
+                    "AttributeName": "jobid",
                     "AttributeType": "S"
                 }],
                 "KeySchema": [{
-                    "AttributeName": "id",
+                    "AttributeName": "jobid",
                     "KeyType": "HASH"
                 }],
                 "ProvisionedThroughput": {
